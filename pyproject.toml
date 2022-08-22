@@ -19,10 +19,11 @@ myloginpath = "^0.0.3"
 feather-format = "^0.4.1"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^7.1.2"
 pylint = "^2.14.5"
 black = { version = "^22.6.0", allow-prereleases = true }
 ipykernel = "^6.15.1"
+mypy = "^0.971"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -47,3 +48,6 @@ good-names = ["a", "b", "c", "d", "df", "i", "logger", "n", "tz", "id", "x", "y"
 
 [tool.pylint.FORMAT]
 max-line-length = 120
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "C,attribute-defined-outside-init,fixme,too-few-public-methods,duplicate-code,logging-fstring-interpolation,too-many-boolean-expressions,too-many-instance-attributes,too-many-arguments,chained-comparison"

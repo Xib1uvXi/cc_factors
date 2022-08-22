@@ -4,7 +4,7 @@ from typing import Optional
 
 import myloginpath
 import pandas as pd
-import pyarrow.feather as feather
+from pyarrow import feather
 
 conf = myloginpath.parse("client")
 conn = f"mysql://{conf['user']}:{conf['password']}@{conf['host']}/binance_data"
