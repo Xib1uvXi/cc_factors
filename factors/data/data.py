@@ -29,7 +29,7 @@ def get_close_prices(
     if os.path.exists(filename):
         return feather.read_feather(filename)
 
-    sql = "select b.datetime as updated_at, b.close_price price" f" from bars_{symbol}_{interval} b where 1=1"
+    sql = "select b.datetime as updated_at, b.close_price as close" f" from bars_{symbol}_{interval} b where 1=1"
 
     if start:
         sql += f" and b.datetime >= '{start}'"

@@ -1,5 +1,7 @@
 from datetime import datetime
 
+import pandas_ta as ta  # pylint: disable=unused-import
+
 from factors.data.data import get_close_prices
 
 
@@ -14,3 +16,5 @@ def test_get_close_prices():
     l = df.to_dict("records")
 
     assert len(l) == 1440
+
+    # print(df.ta.sma(length=10))

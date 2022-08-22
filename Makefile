@@ -44,7 +44,7 @@ lint:
 	./scripts/ci/lint.sh
 
 test: ## run tests quickly with the default Python
-	pytest
+	pytest -s
 
 dist: clean ## builds source and wheel package
 	python setup.py sdist
