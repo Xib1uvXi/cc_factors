@@ -25,7 +25,7 @@ def get_close_prices(
         pd.DataFrame: 收盘价时间序列
     """
 
-    filename = f"prices_{symbol}_{interval}_{start}_{end}.feather"
+    filename = f"tmp/prices_{symbol}_{interval}_{start}_{end}.feather"
     if os.path.exists(filename):
         return feather.read_feather(filename)
 
