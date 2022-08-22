@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "cc_factors"
+version = "0.0.1"
+description = "quant factor research"
+authors = ["wangxi <xib1102@icloud.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^1.4.3"
+plotly = "^5.9.0"
+numpy = "^1.23.2"
+scikit-learn = "^1.1.2"
+sqlalchemy = "^1.4.40"
+mysql = "^0.0.3"
+pandas-ta = "^0.3.14-beta.0"
+typing-extensions = "^4.3.0"
+myloginpath = "^0.0.3"
+feather-format = "^0.4.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.14.5"
+black = { version = "^22.6.0", allow-prereleases = true }
+ipykernel = "^6.15.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+default = true
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = ''
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.BASIC]
+good-names = ["a", "b", "c", "d", "df", "i", "logger", "n", "tz", "id", "x", "y"]
+
+[tool.pylint.FORMAT]
+max-line-length = 120
