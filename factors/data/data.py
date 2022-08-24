@@ -38,7 +38,8 @@ def get_close_prices(
         sql += f" and b.datetime <= '{end}'"
 
     sql += " order by b.datetime asc"
-    df = pd.read_sql(sql, conn).set_index("updated_at")
+    df = pd.read_sql(sql, conn, parse_dates={"updated_at": {"utc": True}})
+    df = df.set_index(pd.DatetimeIndex(df["updated_at"]).tz_convert("Asia/Shanghai"))
 
     feather.write_feather(df, filename)
     return df
