@@ -20,32 +20,6 @@ class State:
         df["cu_up_priod_success"] = df["signal_cu_up"] & (df["close"].shift(-1 * priod) - df["close"] < 0)
         df["priod_diff_close"] = df["close"] - df["close"].shift(-1 * priod)
 
-        # Indicators
-
-        # win rate
-        win_rate = df["cu_up_priod_success"].sum() / df["signal_cu_up"].sum()
-
-        # net_values
-        signal_close = df[df["signal_cu_up"]]["close"]
-        signal_priod_diff_close = df[df["signal_cu_up"]]["priod_diff_close"]
-        amplitudes = signal_priod_diff_close / signal_close
-        net_values = (1 + amplitudes).cumprod()
-
-        # calculate correlation
-        corr = (
-            df[["signal_cu_up", "cu_up_priod_success"]]
-            .corr(method="spearman")
-            .loc["signal_cu_up", "cu_up_priod_success"]
-        )
-
-        # calulate covariance
-        cov = df[["signal_cu_up", "cu_up_priod_success"]].cov().loc["signal_cu_up", "cu_up_priod_success"]
-
-        print("correlation", corr)
-        print("covariance", cov)
-        print("win_rate", win_rate)
-        print("net_values", net_values[-1])
-
         return df
 
 
