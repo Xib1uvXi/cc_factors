@@ -52,3 +52,15 @@ def test_vix_1h():
     vix_model = Model(length=36).fit(close)
 
     vix_indicators(vix_model.state.cu_up(24), "filusdt-1h")
+
+
+def test_vix_1h_vsbao():
+    symbol = "filusdt"
+    interval = "1h"
+    start_time = datetime(2021, 10, 1, 0, 0, 0)
+    end_time = datetime(2022, 8, 16, 8, 0, 0)
+    close = get_close_prices(symbol, interval, start_time, end_time)
+
+    vix_model = Model(length=36).fit(close)
+
+    vix_indicators(vix_model.state.cu_up(24), "filusdt-1h_vs_bao")
