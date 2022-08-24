@@ -38,7 +38,11 @@ class State:
             .loc["signal_cu_up", "cu_up_priod_success"]
         )
 
+        # calulate covariance
+        cov = df[["signal_cu_up", "cu_up_priod_success"]].cov().loc["signal_cu_up", "cu_up_priod_success"]
+
         print("correlation", corr)
+        print("covariance", cov)
         print("win_rate", win_rate)
         print("net_values", net_values[-1])
 
